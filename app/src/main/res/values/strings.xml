@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Online Banking Application</string>
+    <string name="cont">Bank Logo</string>
+    <string name="switchbutton"> ATM / Bank</string>
+    <string name="textleft">ATM</string>
+    <string name="textright">Branch</string>
+    <string name="title_activity_locator">Map</string>
+</resources>
