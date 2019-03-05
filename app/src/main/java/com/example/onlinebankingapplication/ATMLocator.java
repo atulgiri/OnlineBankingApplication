@@ -31,11 +31,10 @@ public class ATMLocator extends AppCompatActivity
         vsearch = findViewById(R.id.isearch);
         vsearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 String gplace = vplace.getText().toString();
-                Log.i("State","Entered Search Button");
-                Cursor c = mdb.rawQuery("SELECT * FROM places WHERE place = '"+gplace+"'",null);
+                Log.i("State", "Entered Search Button");
+                Cursor c = mdb.rawQuery("SELECT * FROM places WHERE place = '" + gplace + "'", null);
                 int doornoindex = c.getColumnIndex("doorno");
                 int placeindex = c.getColumnIndex("place");
                 int stateindex = c.getColumnIndex("state");
@@ -43,17 +42,17 @@ public class ATMLocator extends AppCompatActivity
                 c.moveToFirst();
                 String str = c.getString(stateindex);
                 int vdoorno = c.getInt(doornoindex);
-//                Toast.makeText(getApplicationContext(),"Door No : "+Integer.toString(vdoorno),Toast.LENGTH_SHORT).show();
+                //                Toast.makeText(getApplicationContext(),"Door No : "+Integer.toString(vdoorno),Toast.LENGTH_SHORT).show();
                 String vstate = c.getString(stateindex);
                 int vpin = c.getInt(pinindex);
-                Log.i("State",str);
-//                Toast.makeText(getApplicationContext(),str,Toast.LENGTH_SHORT).show();
-                AlertDialog.Builder builder= new AlertDialog.Builder(ATMLocator.this);
+                Log.i("State", str);
+                //                Toast.makeText(getApplicationContext(),str,Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(ATMLocator.this);
                 builder.setCancelable(false);
                 builder.setIcon(android.R.drawable.ic_menu_directions);
                 builder.setTitle("Address");
-                builder.setMessage("Door No : "+vdoorno+"\nPlace   : "+gplace+"\nState   : "+vstate+"\nPin     : "+vpin);
-                builder.setNegativeButton("Ok",null);
+                builder.setMessage("Door No : " + vdoorno + "\nPlace   : " + gplace + "\nState   : " + vstate + "\nPin     : " + vpin);
+                builder.setNegativeButton("Ok", null);
                 builder.create().show();
                 c.close();
             }

@@ -32,11 +32,10 @@ public class BranchLocator extends AppCompatActivity
         vsearch = findViewById(R.id.isearch);
         vsearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 String gplace = vplace.getText().toString();
-                Log.i("State","Entered Search Button");
-                Cursor c = mdb.rawQuery("SELECT * FROM places WHERE place = '"+gplace+"'",null);
+                Log.i("State", "Entered Search Button");
+                Cursor c = mdb.rawQuery("SELECT * FROM places WHERE place = '" + gplace + "'", null);
                 int doornoindex = c.getColumnIndex("doorno");
                 int placeindex = c.getColumnIndex("place");
                 int stateindex = c.getColumnIndex("state");
@@ -46,16 +45,17 @@ public class BranchLocator extends AppCompatActivity
                 int vdoorno = c.getInt(doornoindex);
                 String vstate = c.getString(stateindex);
                 int vpin = c.getInt(pinindex);
-                Log.i("State",str);
-                AlertDialog.Builder builder= new AlertDialog.Builder(BranchLocator.this);
+                Log.i("State", str);
+                AlertDialog.Builder builder = new AlertDialog.Builder(BranchLocator.this);
                 builder.setCancelable(false);
                 builder.setIcon(android.R.drawable.ic_menu_directions);
                 builder.setTitle("Address");
-                builder.setMessage("Door No : "+vdoorno+"\nPlace   : "+gplace+"\nState   : "+vstate+"\nPin     : "+vpin);
-                builder.setNegativeButton("Ok",null);
+                builder.setMessage("Door No : " + vdoorno + "\nPlace   : " + gplace + "\nState   : " + vstate + "\nPin     : " + vpin);
+                builder.setNegativeButton("Ok", null);
                 builder.create().show();
                 c.close();
             }
         });
+
     }
 }
