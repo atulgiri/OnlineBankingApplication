@@ -1,5 +1,6 @@
 package com.example.onlinebankingapplication;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +16,7 @@ public class BranchLocator extends AppCompatActivity
 {
     private EditText vplace;
     Button vsearch;
+    Button vhome;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -26,26 +28,33 @@ public class BranchLocator extends AppCompatActivity
         mdb.execSQL("INSERT INTO places (doorno,place,state,pin) VALUES (53,'Chennai','Tamil Nadu',600028)");
         mdb.execSQL("INSERT INTO places (doorno,place,state,pin) VALUES (13,'Bangalore','Karnataka',633213)");
         Toast.makeText(getApplicationContext(), "Database Generated", Toast.LENGTH_SHORT).show();
-        Log.i("State", "Database Generated");
-
         vplace = findViewById(R.id.iplace);
         vsearch = findViewById(R.id.isearch);
+        vhome = findViewById(R.id.ihome);
         vsearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String gplace = vplace.getText().toString();
+                Cursor red = mdb.rawQuery("SELECT EXISTS(SELECT * FROM places WHERE place = '" + gplace + "')", null);
+                while(red.getCount()<=0)
+                {
+                    AlertDialog.Builder vnullmessage = new AlertDialog.Builder(BranchLocator.this);
+                    vnullmessage.setTitle("No entries detected");
+                    vnullmessage.setMessage("Please try again");
+                    vnullmessage.setPositiveButton("OK",null);
+                    vnullmessage.create().show();
+                    gplace = vplace.getText().toString();
+                }
+                red.close();
                 Log.i("State", "Entered Search Button");
                 Cursor c = mdb.rawQuery("SELECT * FROM places WHERE place = '" + gplace + "'", null);
                 int doornoindex = c.getColumnIndex("doorno");
-                int placeindex = c.getColumnIndex("place");
                 int stateindex = c.getColumnIndex("state");
                 int pinindex = c.getColumnIndex("pin");
                 c.moveToFirst();
-                String str = c.getString(stateindex);
                 int vdoorno = c.getInt(doornoindex);
                 String vstate = c.getString(stateindex);
                 int vpin = c.getInt(pinindex);
-                Log.i("State", str);
                 AlertDialog.Builder builder = new AlertDialog.Builder(BranchLocator.this);
                 builder.setCancelable(false);
                 builder.setIcon(android.R.drawable.ic_menu_directions);
@@ -54,6 +63,15 @@ public class BranchLocator extends AppCompatActivity
                 builder.setNegativeButton("Ok", null);
                 builder.create().show();
                 c.close();
+            }
+        });
+        vhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent back2home = new Intent(BranchLocator.this,MainActivity.class);
+                startActivity(back2home);
+                finish();
             }
         });
 

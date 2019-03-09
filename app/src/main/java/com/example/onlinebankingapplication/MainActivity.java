@@ -13,12 +13,10 @@ public class MainActivity extends AppCompatActivity
 {
     Button mbutton;
     Switch mswitch1;
-    //    private FirebaseAuth.AuthStateListener FirebaseAuthListener;
     protected void onCreate(final Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        getSupportActionBar().hide();
         mbutton = findViewById(R.id.button1);
         mswitch1 = findViewById(R.id.switch1);
         mbutton.setOnClickListener(new View.OnClickListener()
@@ -47,8 +45,5 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-//        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference();
-//        FirebaseAuthListener =
-
     }
 }

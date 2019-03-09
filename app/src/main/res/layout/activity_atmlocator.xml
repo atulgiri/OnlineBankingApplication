@@ -9,16 +9,25 @@
 
     <EditText
         android:id="@+id/iplace"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:hint="Enter a place"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="250dp"
+        android:hint="Enter a place" />
 
     <Button
         android:id="@+id/isearch"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         android:text="Search" />
+    <Button
+        android:id="@+id/ihome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Home"
+        android:layout_marginTop="130dp"/>
 
 </LinearLayout>
