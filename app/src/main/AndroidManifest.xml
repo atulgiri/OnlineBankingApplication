@@ -9,14 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ATMLocator"></activity>
-        <activity android:name=".BranchLocator" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".BranchEdit" />
+        <activity android:name=".ATMEdit" />
+        <activity android:name=".ManagerEdit" />
+        <activity android:name=".ManagerLogin" />
+        <activity android:name=".AlertBarATM" />
+        <activity android:name=".ATMLocator" />
+        <activity android:name=".BranchLocator" />
+        <activity android:name=".MainActivity">
         </activity>
     </application>
 

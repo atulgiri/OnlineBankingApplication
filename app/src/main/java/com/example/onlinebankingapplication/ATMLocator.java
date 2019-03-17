@@ -20,14 +20,11 @@ public class ATMLocator extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        //New file
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atmlocator);
-        final SQLiteDatabase mdb = this.openOrCreateDatabase("Places", MODE_PRIVATE, null);
-        mdb.execSQL("CREATE TABLE IF NOT EXISTS places (doorno INT, place VARCHAR, state VARCHAR, pin INT(6))");
-        mdb.execSQL("INSERT INTO places (doorno,place,state,pin) VALUES (45,'Kochi','Kerala',623213)");
-        mdb.execSQL("INSERT INTO places (doorno,place,state,pin) VALUES (53,'Chennai','Tamil Nadu',600028)");
-        mdb.execSQL("INSERT INTO places (doorno,place,state,pin) VALUES (13,'Bangalore','Karnataka',633213)");
+
+        final SQLiteDatabase dbATM = this.openOrCreateDatabase("Places1", MODE_PRIVATE, null);
+
         Toast.makeText(getApplicationContext(), "Database Generated", Toast.LENGTH_SHORT).show();
         vplace = findViewById(R.id.iplace);
         vsearch = findViewById(R.id.isearch);
@@ -38,31 +35,32 @@ public class ATMLocator extends AppCompatActivity
             public void onClick(View v)
             {
                 String gplace = vplace.getText().toString();
-                Cursor red = mdb.rawQuery("SELECT EXISTS(SELECT * FROM places WHERE place = '" + gplace + "')", null);
-                while(red.getCount()<=0)
+                Cursor init = dbATM.rawQuery("SELECT EXISTS(SELECT * FROM placesATM WHERE place = '" + gplace + "')", null);
+                while(init.getCount()<=0)
                 {
                     AlertDialog.Builder vnullmessage = new AlertDialog.Builder(ATMLocator.this);
                     vnullmessage.setTitle("No entries detected");
                     vnullmessage.setMessage("Please try again");
                     vnullmessage.setPositiveButton("OK",null);
                     vnullmessage.create().show();
-                    gplace = vplace.getText().toString();
                 }
-                red.close();
-                Log.i("State", "Entered Search Button");
-                Cursor c = mdb.rawQuery("SELECT * FROM places WHERE place = '" + gplace + "'", null);
+                init.close();
+                Log.i("State", "EntedbATM Search Button");
+                Cursor c = dbATM.rawQuery("SELECT * FROM placesATM WHERE place = '" + gplace + "'", null);
                 int doornoindex = c.getColumnIndex("doorno");
                 int stateindex = c.getColumnIndex("state");
                 int pinindex = c.getColumnIndex("pin");
+                int circleindex = c.getColumnIndex("circle");
                 c.moveToFirst();
                 int vdoorno = c.getInt(doornoindex);
                 String vstate = c.getString(stateindex);
+                String vcircle = c.getString(circleindex);
                 int vpin = c.getInt(pinindex);
                 AlertDialog.Builder builder = new AlertDialog.Builder(ATMLocator.this);
                 builder.setCancelable(false);
                 builder.setIcon(android.R.drawable.ic_menu_directions);
                 builder.setTitle("Address");
-                builder.setMessage("Door No : " + vdoorno + "\nPlace   : " + gplace + "\nState   : " + vstate + "\nPin     : " + vpin);
+                builder.setMessage("Door No : " + vdoorno + "\nPlace   : " + gplace + "\nCircle : "+vcircle+"\nState   : " + vstate + "\nPin     : " + vpin);
                 builder.setNegativeButton("Ok", null);
                 builder.create().show();
                 c.close();
@@ -73,7 +71,7 @@ public class ATMLocator extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent back2home = new Intent(ATMLocator.this,MainActivity.class);
+                Intent back2home = new Intent(ATMLocator.this,LoginActivity.class);
                 startActivity(back2home);
                 finish();
             }

@@ -1,6 +1,7 @@
 package com.example.onlinebankingapplication;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity
 {
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         mbutton = findViewById(R.id.button1);
         mswitch1 = findViewById(R.id.switch1);
+
         mbutton.setOnClickListener(new View.OnClickListener()
         {
             @Override
