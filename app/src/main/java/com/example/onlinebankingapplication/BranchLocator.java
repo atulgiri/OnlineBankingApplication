@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
 
 public class BranchLocator extends AppCompatActivity
@@ -27,12 +26,6 @@ public class BranchLocator extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branch_locator);
         final SQLiteDatabase dbBranch = this.openOrCreateDatabase("PlacesBranch", MODE_PRIVATE, null);
-        dbBranch.execSQL("DROP TABLE IF EXISTS places");
-        dbBranch.execSQL("CREATE TABLE IF NOT EXISTS places (doorno INT, place VARCHAR, state VARCHAR, pin INT(6),locker VARCHAR,updation VARCHAR)");
-        dbBranch.execSQL("INSERT INTO places (doorno,place,state,pin,locker,updation) VALUES (45,'Kochi','Kerala',623213,'yes','yes')");
-        dbBranch.execSQL("INSERT INTO places (doorno,place,state,pin,locker,updation) VALUES (53,'Chennai','Tamil Nadu',600028,'no','yes')");
-        dbBranch.execSQL("INSERT INTO places (doorno,place,state,pin,locker,updation) VALUES (13,'Bangalore','Karnataka',633213,'yes','no')");
-        Toast.makeText(getApplicationContext(), "Database Generated", Toast.LENGTH_SHORT).show();
         vplace = findViewById(R.id.iplace);
         vsearch = findViewById(R.id.isearch);
         vhome = findViewById(R.id.ihome);
@@ -45,7 +38,8 @@ public class BranchLocator extends AppCompatActivity
             {
                 String gplace = vplace.getText().toString();
                 Log.i("State", "Entered Search Button");
-                String checkLocker,checkUpdater;
+                String checkLocker;
+                String checkUpdater;
                 if(vLocker.isChecked())
                 {
                     checkLocker = "yes";

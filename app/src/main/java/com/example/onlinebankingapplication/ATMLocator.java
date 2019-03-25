@@ -76,5 +76,6 @@ public class ATMLocator extends AppCompatActivity
                 finish();
             }
         });
+//        dbATM.close();
     }
 }

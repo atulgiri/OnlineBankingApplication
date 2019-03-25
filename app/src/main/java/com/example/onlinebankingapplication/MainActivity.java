@@ -1,7 +1,6 @@
 package com.example.onlinebankingapplication;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         mbutton = findViewById(R.id.button1);
         mswitch1 = findViewById(R.id.switch1);
-
         mbutton.setOnClickListener(new View.OnClickListener()
         {
             @Override

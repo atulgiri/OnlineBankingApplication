@@ -63,7 +63,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/onlinebankingapplication/AnMain1.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/onlinebankingapplication/BranchEdit.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/onlinebankingapplication/BranchLocator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/onlinebankingapplication/DatabaseHelper.java">
           <value>
             <set />
           </value>
@@ -108,12 +123,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_an_main1.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_atmedit.xml">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_atmlocator.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_branch_edit.xml">
           <value>
             <set />
           </value>
@@ -219,6 +244,106 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM2/gradle.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/ATMEdit.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/ATMLocator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/BranchEdit.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/BranchLocator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/LoginActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/MainActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/ManagerEdit.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/ManagerLogin.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/java/com/example/onlinebankingapplicationm3/MangerLogin.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_atmedit.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_atmlocator.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_branch_edit.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_branch_locator.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_login.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_manager_edit.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_manager_login.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/layout/activity_manger_login.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../OnlineBankingApplicationM3/app/src/main/res/values/styles.xml">
           <value>
             <set />
           </value>
