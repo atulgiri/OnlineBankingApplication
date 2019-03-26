@@ -37,36 +37,37 @@ public class ATMLocator extends AppCompatActivity
             {
                 SQLiteDatabase dbATM = openOrCreateDatabase("Places1", MODE_PRIVATE, null);
                 String gplace = vplace.getText().toString();
-                Cursor init = dbATM.rawQuery("SELECT EXISTS(SELECT * FROM placesATM WHERE place = '" + gplace + "')", null);
-                while(init.getCount()<=0)
+                Log.i("State", "EntedbATM Search Button");
+                Cursor c = dbATM.rawQuery("SELECT * FROM placesATM WHERE place = '" + gplace + "'", null);
+                if(c.getCount()<=0)
                 {
                     AlertDialog.Builder vnullmessage = new AlertDialog.Builder(ATMLocator.this);
                     vnullmessage.setTitle("No entries detected");
                     vnullmessage.setMessage("Please try again");
                     vnullmessage.setPositiveButton("OK",null);
                     vnullmessage.create().show();
+                    dbATM.close();
                 }
-                init.close();
-                Log.i("State", "EntedbATM Search Button");
-                Cursor c = dbATM.rawQuery("SELECT * FROM placesATM WHERE place = '" + gplace + "'", null);
-                int doornoindex = c.getColumnIndex("doorno");
-                int stateindex = c.getColumnIndex("state");
-                int pinindex = c.getColumnIndex("pin");
-                int circleindex = c.getColumnIndex("circle");
-                c.moveToFirst();
-                int vdoorno = c.getInt(doornoindex);
-                String vstate = c.getString(stateindex);
-                String vcircle = c.getString(circleindex);
-                int vpin = c.getInt(pinindex);
-                AlertDialog.Builder builder = new AlertDialog.Builder(ATMLocator.this);
-                builder.setCancelable(false);
-                builder.setIcon(android.R.drawable.ic_menu_directions);
-                builder.setTitle("Address");
-                builder.setMessage("Door No : " + vdoorno + "\nPlace   : " + gplace + "\nCircle : "+vcircle+"\nState   : " + vstate + "\nPin     : " + vpin);
-                builder.setNegativeButton("Ok", null);
-                builder.create().show();
-                c.close();
-                dbATM.close();
+                else {
+                    int doornoindex = c.getColumnIndex("doorno");
+                    int stateindex = c.getColumnIndex("state");
+                    int pinindex = c.getColumnIndex("pin");
+                    int circleindex = c.getColumnIndex("circle");
+                    c.moveToFirst();
+                    int vdoorno = c.getInt(doornoindex);
+                    String vstate = c.getString(stateindex);
+                    String vcircle = c.getString(circleindex);
+                    int vpin = c.getInt(pinindex);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ATMLocator.this);
+                    builder.setCancelable(false);
+                    builder.setIcon(android.R.drawable.ic_menu_directions);
+                    builder.setTitle("Address");
+                    builder.setMessage("Door No : " + vdoorno + "\nPlace   : " + gplace + "\nCircle : " + vcircle + "\nState   : " + vstate + "\nPin     : " + vpin);
+                    builder.setNegativeButton("Ok", null);
+                    builder.create().show();
+                    c.close();
+                    dbATM.close();
+                }
             }
         });
         vhome.setOnClickListener(new View.OnClickListener()

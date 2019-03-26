@@ -3,59 +3,112 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bck4"
     android:layout_height="match_parent"
     tools:context="com.example.onlinebankingapplication.ATMEdit">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:layout_marginTop="150dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Enter a door no : "/>
+        <EditText
+            android:id="@+id/itextdoor"
+            android:layout_width="150dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Enter a circle : "/>
+        <EditText
+            android:id="@+id/itextcircle"
+            android:layout_width="150dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="250dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Enter a place : "
-            android:textSize="20dp"
-            android:layout_marginTop="200dp"/>
+            android:textSize="20dp"/>
         <EditText
             android:id="@+id/itextplace"
             android:layout_width="150dp"
             android:textSize="20dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:layout_marginTop="300dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="Enter a circle : "
-            android:layout_marginTop="270dp"/>
+            android:text="Enter a state : "/>
         <EditText
-            android:id="@+id/itextcircle"
+            android:id="@+id/itextstate"
             android:layout_width="150dp"
             android:textSize="20dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="350dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="270dp"/>
+            android:textSize="20dp"
+            android:text="Enter a pin : "/>
+        <EditText
+            android:id="@+id/itextpin"
+            android:layout_width="150dp"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
     <Button
         android:id="@+id/iButtonChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Change"
-        android:layout_marginTop="350dp"/>
+        android:text="Add"
+        android:layout_marginTop="450dp"/>
     <Button
         android:id="@+id/iButtonHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="500dp"/>
+        android:layout_marginTop="530dp"/>
 </RelativeLayout>
