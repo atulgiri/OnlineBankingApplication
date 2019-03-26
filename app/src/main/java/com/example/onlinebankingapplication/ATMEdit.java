@@ -23,7 +23,6 @@ public class ATMEdit extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atmedit);
         final SQLiteDatabase dbATM = this.openOrCreateDatabase("Places1", MODE_PRIVATE, null);
-
         mPlace = findViewById(R.id.itextplace);
         mCircle = findViewById(R.id.itextcircle);
         mChange = findViewById(R.id.iButtonChange);
@@ -33,10 +32,12 @@ public class ATMEdit extends AppCompatActivity
         dbATM.execSQL("INSERT INTO placesATM (doorno,circle,place,state,pin) VALUES (45,'Kaloor','Kochi','Kerala',623213)");
         dbATM.execSQL("INSERT INTO placesATM (doorno,circle,place,state,pin) VALUES (53,'Anna Nagar','Chennai','Tamil Nadu',600028)");
         dbATM.execSQL("INSERT INTO placesATM (doorno,circle,place,state,pin) VALUES (13,'White Feild','Bangalore','Karnataka',633213)");
+        dbATM.close();
         mChange.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
+                SQLiteDatabase dbATM = openOrCreateDatabase("Places1", MODE_PRIVATE, null);
                 String vPlace = mPlace.getText().toString();
                 String vCircle = mCircle.getText().toString();
                 Cursor rep = dbATM.rawQuery("UPDATE placesATM SET circle = '" + vCircle + "' WHERE place = '" + vPlace + "'", null);
@@ -44,6 +45,7 @@ public class ATMEdit extends AppCompatActivity
                 if (b)
                     Toast.makeText(getApplicationContext(), "Entries updated", Toast.LENGTH_SHORT).show();
                 rep.close();
+                dbATM.close();
             }
         });
         mHome.setOnClickListener(new View.OnClickListener() {
@@ -54,17 +56,5 @@ public class ATMEdit extends AppCompatActivity
                 finish();
             }
         });
-//            dbATM.close();
-        try {
-            Toast.makeText(getApplicationContext(), "Inside Try ", Toast.LENGTH_SHORT).show();
-        }
-//        catch (IllegalStateException e)
-//        {
-//            Toast.makeText(getApplicationContext(), "Error Detected "+e, Toast.LENGTH_SHORT).show();
-//        }
-        finally
-        {
-//            dbATM.close();
-        }
     }
 }

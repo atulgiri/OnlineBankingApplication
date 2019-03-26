@@ -28,11 +28,13 @@ public class ManagerLogin extends AppCompatActivity
         mUsername = findViewById(R.id.iuserEditText);
         mPassword = findViewById(R.id.ipassEditText);
         mLogin = findViewById(R.id.iLogin);
+        dManager.close();
         mLogin.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                SQLiteDatabase dManager = openOrCreateDatabase("Managers",MODE_PRIVATE,null);
                 String vuser =  mUsername.getText().toString();
                 String vpass = mPassword.getText().toString();
                 Cursor logdata = dManager.rawQuery("SELECT * FROM managers WHERE username = '"+vuser+"' AND password = '"+vpass+"'",null);
@@ -44,11 +46,11 @@ public class ManagerLogin extends AppCompatActivity
                 {
                     Toast.makeText(getApplicationContext(),"Welcome "+vuser,Toast.LENGTH_SHORT).show();
                     Intent manage = new Intent(ManagerLogin.this,ManagerEdit.class);
-//                    manage.putExtra()
                     startActivity(manage);
                     finish();
                 }
                 logdata.close();
+                dManager.close();
             }
         });
 

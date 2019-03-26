@@ -29,11 +29,13 @@ public class ATMLocator extends AppCompatActivity
         vplace = findViewById(R.id.iplace);
         vsearch = findViewById(R.id.isearch);
         vhome = findViewById(R.id.ihome);
+        dbATM.close();
         vsearch.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                SQLiteDatabase dbATM = openOrCreateDatabase("Places1", MODE_PRIVATE, null);
                 String gplace = vplace.getText().toString();
                 Cursor init = dbATM.rawQuery("SELECT EXISTS(SELECT * FROM placesATM WHERE place = '" + gplace + "')", null);
                 while(init.getCount()<=0)
@@ -64,6 +66,7 @@ public class ATMLocator extends AppCompatActivity
                 builder.setNegativeButton("Ok", null);
                 builder.create().show();
                 c.close();
+                dbATM.close();
             }
         });
         vhome.setOnClickListener(new View.OnClickListener()
@@ -76,6 +79,5 @@ public class ATMLocator extends AppCompatActivity
                 finish();
             }
         });
-//        dbATM.close();
     }
 }

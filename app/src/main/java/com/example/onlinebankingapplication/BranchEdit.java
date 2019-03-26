@@ -23,7 +23,6 @@ public class BranchEdit extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branch_edit);
-        try {
             final SQLiteDatabase dbBranch = this.openOrCreateDatabase("PlacesBranch", MODE_PRIVATE, null);
             dbBranch.execSQL("DROP TABLE IF EXISTS places");
             dbBranch.execSQL("CREATE TABLE IF NOT EXISTS places (doorno INT, place VARCHAR, state VARCHAR, pin INT(6),locker VARCHAR,updation VARCHAR)");
@@ -36,11 +35,13 @@ public class BranchEdit extends AppCompatActivity
             mHome = findViewById(R.id.iButtonHomeB);
             vLocker = findViewById(R.id.ilockerB);
             vAadhaar = findViewById(R.id.iAadhaarB);
+            dbBranch.close();
             mChange.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v)
                 {
+                    SQLiteDatabase dbBranch = openOrCreateDatabase("PlacesBranch", MODE_PRIVATE, null);
                     String checkLockerB;
                     String checkUpdaterB;
                     if(vLocker.isChecked())
@@ -67,14 +68,10 @@ public class BranchEdit extends AppCompatActivity
                     if (b)
                         Toast.makeText(getApplicationContext(), "Entries updated", Toast.LENGTH_SHORT).show();
                     rep.close();
+                    dbBranch.close();
                 }
             });
 
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(getApplicationContext(), "Error Detected : "+e, Toast.LENGTH_SHORT).show();
-        }
         mHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

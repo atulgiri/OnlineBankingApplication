@@ -31,11 +31,13 @@ public class BranchLocator extends AppCompatActivity
         vhome = findViewById(R.id.ihome);
         vLocker = findViewById(R.id.ilocker);
         vUpdater = findViewById(R.id.iUpdater);
+        dbBranch.close();
         vsearch.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                SQLiteDatabase dbBranch = openOrCreateDatabase("PlacesBranch", MODE_PRIVATE, null);
                 String gplace = vplace.getText().toString();
                 Log.i("State", "Entered Search Button");
                 String checkLocker;
@@ -86,6 +88,7 @@ public class BranchLocator extends AppCompatActivity
                     builder.create().show();
                 }
                 c.close();
+                dbBranch.close();
             }
         });
         vhome.setOnClickListener(new View.OnClickListener() {
